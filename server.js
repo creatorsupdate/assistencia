@@ -53,10 +53,10 @@ server.put('/assistencia/:id', async (request, response) => {
     //    };
         
     const sql = `
-    UPDATE assistencia SET cliente = $1, servico = $2, orcamento = $3, situacao = $4  WHERE id = $6
+    UPDATE assistencia SET cliente = $1, servico = $2, orcamento = $3, situacao = $4  WHERE id = $5
     `;
     
-    await pool.query(sql, [cliente, servico, orcamento, situacao]);
+    await pool.query(sql, [nome,numero,idade,salario,contrato,id]);
     return response.status(204).send();
 });      
     

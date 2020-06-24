@@ -9,13 +9,18 @@ const pool = new Pool({
     ssl: { rejectUnauthorized: false }
 });
 
-     const sql_insert = `
-        INSERT INTO assistencia (cliente, servico, orcamento, situacao)
-            VALUES
-                ('Xykó', 'Virus corintiano no celular', 'nao tem preço', 'concluído' )
-            `;
-
+   const sql = `
+    CREATE TABLE IF NOT EXISTS assistencia 
+    (
+        id serial primary key,
+        cliente varchar(200) not null,
+        servico varchar(3),
+        orcamento varchar(11),
+        situacao varchar(50)
+       
+    )
+`;
     pool.query(sql, function(error, result) {
-        if(error)
-            throw error;
+    if(error)
+        throw error;
 });
