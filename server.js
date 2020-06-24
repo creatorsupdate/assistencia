@@ -56,7 +56,7 @@ server.put('/assistencia/:id', async (request, response) => {
     UPDATE assistencia SET cliente = $1, servico = $2, orcamento = $3, situacao = $4  WHERE id = $6
     `;
     
-    await pool.query(sql, [nome,numero,idade,salario,contrato,id]);
+    await pool.query(sql, [cliente, servico, orcamento, situacao]);
     return response.status(204).send();
 });      
     

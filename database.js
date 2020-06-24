@@ -13,11 +13,9 @@ const pool = new Pool({
         INSERT INTO assistencia (cliente, servico, orcamento, situacao)
             VALUES
                 ('Xykó', 'Virus corintiano no celular', 'nao tem preço', 'concluído' )
-    `;
+            `;
 
-    pool.query(sql_insert, function(error, result) {
+    pool.query(sql, function(error, result) {
         if(error)
             throw error;
-        
-        console.log(result.rowCount);
-    })
+});
