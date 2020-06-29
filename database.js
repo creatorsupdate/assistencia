@@ -9,18 +9,14 @@ const pool = new Pool({
     ssl: { rejectUnauthorized: false }
 });
 
-   const sql = `
-    CREATE TABLE IF NOT EXISTS assistencia 
-    (
-        id serial primary key,
-        cliente varchar(200) not null,
-        servico varchar(3),
-        orcamento varchar(11),
-        situacao varchar(50)
-       
-    )
-`;
-    pool.query(sql, function(error, result) {
-    if(error)
-        throw error;
-});
+const sql_insert = `
+        INSERT INTO assistencia (cliente, servico, orcamento, situacao)
+            VALUES 
+                ('Shutakoko Nakara', 'troca de tela Iphone 7', 240,00, 'aprovado')`;
+
+pool.query(sql_insert, function(error, result) {
+        if(error)
+            throw error;
+        
+        console.log(result.rowCount);
+})
