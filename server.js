@@ -71,19 +71,19 @@ server.put('/assistencia/:id', async function(request, response) {
     return response.status(204).send();
 })
 
-server.patch('/assistencia/:id/situacao', async function(request, response) {
-    const id = request.params.id;
-    const sql = `UPDATE assistencia SET situacao = true WHERE id = $1`;
-    await pool.query(sql, [id]);
-    return response.status(204).send();
-})
+//server.patch('/assistencia/:id/situacao', async function(request, response) {
+//    const id = request.params.id;
+//    const sql = `UPDATE assistencia SET situacao = true WHERE id = $1`;
+//    await pool.query(sql, [id]);
+//    return response.status(204).send();
+//})
 
-server.patch('/assistencia/:id/unsituacao', async function(request, response) {
-    const id = request.params.id;
-    const sql = `UPDATE assistencia SET situacao = false WHERE id = $1`;
-    await pool.query(sql, [id]);
-    return response.status(204).send();
-}) 
+//server.patch('/assistencia/:id/unsituacao', async function(request, response) {
+//    const id = request.params.id;
+//    const sql = `UPDATE assistencia SET situacao = false WHERE id = $1`;
+//    await pool.query(sql, [id]);
+//    return response.status(204).send();
+//}) 
 
 // escutar um porta com as requisições HTTP:
 server.listen(process.env.PORT || 3000);
