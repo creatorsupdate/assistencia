@@ -66,7 +66,7 @@ server.delete('/assistencia/:id', async function(request, response) {
 server.put('/assistencia/:id', async function(request, response) {
     const id = request.params.id;
     const { cliente, servico, orcamento, situacao } = request.body;
-    const sql = `UPDATE assistencia SET cliente = $1, servico = $2, orcamento = $3, situacao = $4, WHERE id = $5`;
+    const sql = `UPDATE assistencia SET cliente = $1, servico = $2, orcamento = $3, situacao = $4 WHERE id = $5`;
     await pool.query(sql, [cliente, servico, orcamento, situacao, id]);
     return response.status(204).send();
 })
