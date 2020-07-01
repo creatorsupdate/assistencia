@@ -52,7 +52,7 @@ server.post('/assistencia', async function(request, response) {
     // SQL Injection
     // const sql = `INSERT INTO assistencia (cliente, servico, orcamento, situacao) VALUES (`+ cliente + `, false)`;
     const sql = `INSERT INTO assistencia (cliente, servico, orcamento, situacao) VALUES ($1, $2,$3, $4)`;
-    await pool.query(sql, [cliente, false]);
+    await pool.query(sql, [cliente, servico, orcamento, situacao]);
     return response.status(204).send(); 
 })
 
